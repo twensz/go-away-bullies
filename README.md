@@ -11,7 +11,7 @@ git clone https://github.com/twensz/go-away-bullies.git
 ```
 
 <ul>
-  <li>Setelah berhasil di clone, JANGAN LUPA UNTUK NPM INSTALL agar node_modules dapat terpasang dan packagenya bisa berjalan dengan baik</li>
+  <li>Setelah berhasil di clone, jangan lupa untuk menginstall node_modules</li>
 </ul>
 
 ```bash
@@ -23,35 +23,48 @@ npm install
 
 <ul>
   <li>Membuat branch baru dengan format (nama-kamu/nama-fitur) contoh (syidan/login)</li>
-  <li>Kemudian checkout ke branch yang telah dibuat melalui terminal "git checkout nama-branch"</li>
+</ul>
+
+<ul>
+  <li>Kemudian checkout ke branch yang telah dibuat melalui terminal</li>
+</ul>
   
   ```bash
-git checkout nama-branch
+git checkout (nama-branch)
 ```
 
-  <li>Coding sampe muntah, jangan lupa commit setiap sudah menyelesaikan checkpoint</li>
+<ul>
+  <li>Jangan lupa commit sebagai checkpoint</li>
+</ul>
   
   ```bash
 git commit -m 'pesan commit'
 ```
+  
 
-  <li>Untuk menghindari konflik lakukan git pull sebelum git push, caranya adalah <i>git pull origin main</i></li>
-</ul>
 
 ### CARA SUBMIT TASK
 
 <ul>
-  <li>Caranya tinggal git push aja</li>
+  <li>Untuk menghindari konflik lakukan git pull sebelum git push</li>
+</ul>
+
+  ```bash
+git pull
+```
+
+<ul>
+  <li>Push project </li>
 </ul>
 
 ```
-  git push
+  git push origin (nama-branch)
 ```
 
 ## LANGKAH 3
 
 <ul>
-  <li>Checkout kembali ke branch main "git checkout main"</li>
+  <li>Checkout kembali ke branch main</li>
 </ul>
 
 ```
@@ -59,7 +72,7 @@ git checkout main
 ```
 
 <ul>
-  <li>Lakukan git pull kembali dengan cara "git pull origin main"</li>
+  <li>Lakukan git pull kembali</li>
 </ul>
 
 ```
@@ -71,5 +84,5 @@ git pull origin main
 </ul>
 
 ```
-git branch -D nama-branch
+git branch -D (nama-branch)
 ```
