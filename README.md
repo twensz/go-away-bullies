@@ -1,71 +1,69 @@
-# Getting Started with Create React App
+# PANDUAN MENGERJAKAN PROYEK DENGAN GITHUB
+## LANGKAH PERTAMA
+### CLONE PROJECT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Langkah pertama yang harus dilakukan adalah clone project, caranya adalah:
+<ul>
+  <li>buat folder terlebih dahulu di laptop teman-teman</li>
+</ul>
 
-## Available Scripts
+```bash
+git clone https://github.com/twensz/go-away-bullies.git
+```
 
-In the project directory, you can run:
+<ul>
+  <li>setelah berhasil di clone, JANGAN LUPA UNTUK NPM INSTALL agar node_modules nya dapat terpasang dan packagenya bisa berjalan dengan baik</li>
+</ul>
 
-### `npm start`
+```bash
+npm install
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## CARA MENGERJAKAN TASK
+(mungkin udah pada tau caranya, tapi saya tulis aja)
+Langkah pertama yang harus dilakukan antara lain adalah:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<ul>
+  <li>membuat branch di akun github teman-teman formatnya seperti ini (1-nama-task), ganti nomer sesuai urutan tasknya ya guys</li>
+  <li>kemudian checkout ke branch yang telah dibuat melalui terminal (git checkout nama_branch)</li>
+  <li>gass ngoding sesuai tugas</li>
+  <li>INI PENTING UNTUK MENGHINDARI TERJADINYA CONFLICT, (LAKUKAN GIT PULL TERLEBIH DAHULU SEBELUM MENGIRIM/PUSH PEKERJAANYA YA GUYS), caranya adalah (git pull origin main)
+	tujuanya adalah barangkali ada tmen yang lain yang sudah ngepush jadi perlu kita sejajari dulu timelinenya sehingga ketika kita ngepush tidak terjadi error</li>
+</ul>
 
-### `npm test`
+satu langkah lagi guys
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## CARA SUBMIT TASK
+(gampang kok ini)
+setelah pekerjaan selesai dan sudah melakukan pull, langkah terahir push
 
-### `npm run build`
+<ul>
+  <li>caranya tinggal git push aja</li>
+</ul>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+  git push
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## TERUS APA SETELAH ITU?
+nah setelah langkah-langkah diatas telah dilakukan, sebenarnya udah selesai, sedikit aja yang perlu dilakukan lagi
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<ul>
+  <li>yang pertama setelah melakukan push, checkout kembali ke branch main (git checkout main)</li>
+</ul>
 
-### `npm run eject`
+```
+git checkout main
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<ul>
+  <li>kemudian lakukan git pull kembali dengan cara (git pull origin main)</li>
+</ul>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+git pull origin main
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# go-away-bullies
+<ul>
+  <li>dan langkah terahir adalah hapus branch yang telah di kerjakan jika dirasa pekerjaan yang telah di push sudah benar dan tidak ada yang perlu diperbaiki lagi</li>
+</ul>
