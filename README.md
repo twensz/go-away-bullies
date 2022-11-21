@@ -1,10 +1,9 @@
 # PANDUAN MENGERJAKAN PROYEK DENGAN GITHUB
-## LANGKAH PERTAMA
+## LANGKAH 1
 ### CLONE PROJECT
 
-Langkah pertama yang harus dilakukan adalah clone project, caranya adalah:
 <ul>
-  <li>buat folder terlebih dahulu di laptop teman-teman</li>
+  <li>Buka folder untuk menyimpan repository, setelah itu buka terminal dan jalankan perintah berikut :</li>
 </ul>
 
 ```bash
@@ -12,44 +11,47 @@ git clone https://github.com/twensz/go-away-bullies.git
 ```
 
 <ul>
-  <li>setelah berhasil di clone, JANGAN LUPA UNTUK NPM INSTALL agar node_modules nya dapat terpasang dan packagenya bisa berjalan dengan baik</li>
+  <li>Setelah berhasil di clone, JANGAN LUPA UNTUK NPM INSTALL agar node_modules dapat terpasang dan packagenya bisa berjalan dengan baik</li>
 </ul>
 
 ```bash
 npm install
 ```
 
-## CARA MENGERJAKAN TASK
-(mungkin udah pada tau caranya, tapi saya tulis aja)
-Langkah pertama yang harus dilakukan antara lain adalah:
+## LANGKAH 2
+### CARA MENGERJAKAN TASK
 
 <ul>
-  <li>membuat branch di akun github teman-teman formatnya seperti ini (1-nama-task), ganti nomer sesuai urutan tasknya ya guys</li>
-  <li>kemudian checkout ke branch yang telah dibuat melalui terminal (git checkout nama_branch)</li>
-  <li>gass ngoding sesuai tugas</li>
-  <li>INI PENTING UNTUK MENGHINDARI TERJADINYA CONFLICT, (LAKUKAN GIT PULL TERLEBIH DAHULU SEBELUM MENGIRIM/PUSH PEKERJAANYA YA GUYS), caranya adalah (git pull origin main)
-	tujuanya adalah barangkali ada tmen yang lain yang sudah ngepush jadi perlu kita sejajari dulu timelinenya sehingga ketika kita ngepush tidak terjadi error</li>
+  <li>Membuat branch baru dengan format (nama-kamu/nama-fitur) contoh (syidan/login)</li>
+  <li>Kemudian checkout ke branch yang telah dibuat melalui terminal "git checkout nama-branch"</li>
+  
+  ```bash
+git checkout nama-branch
+```
+
+  <li>Coding sampe muntah, jangan lupa commit setiap sudah menyelesaikan checkpoint</li>
+  
+  ```bash
+git commit -m 'pesan commit'
+```
+
+  <li>Untuk menghindari konflik lakukan git pull sebelum git push, caranya adalah <i>git pull origin main</i></li>
 </ul>
 
-satu langkah lagi guys
-
-## CARA SUBMIT TASK
-(gampang kok ini)
-setelah pekerjaan selesai dan sudah melakukan pull, langkah terahir push
+### CARA SUBMIT TASK
 
 <ul>
-  <li>caranya tinggal git push aja</li>
+  <li>Caranya tinggal git push aja</li>
 </ul>
 
 ```
   git push
 ```
 
-## TERUS APA SETELAH ITU?
-nah setelah langkah-langkah diatas telah dilakukan, sebenarnya udah selesai, sedikit aja yang perlu dilakukan lagi
+## LANGKAH 3
 
 <ul>
-  <li>yang pertama setelah melakukan push, checkout kembali ke branch main (git checkout main)</li>
+  <li>Checkout kembali ke branch main "git checkout main"</li>
 </ul>
 
 ```
@@ -57,7 +59,7 @@ git checkout main
 ```
 
 <ul>
-  <li>kemudian lakukan git pull kembali dengan cara (git pull origin main)</li>
+  <li>Lakukan git pull kembali dengan cara "git pull origin main"</li>
 </ul>
 
 ```
@@ -65,5 +67,9 @@ git pull origin main
 ```
 
 <ul>
-  <li>dan langkah terahir adalah hapus branch yang telah di kerjakan jika dirasa pekerjaan yang telah di push sudah benar dan tidak ada yang perlu diperbaiki lagi</li>
+  <li>Hapus branch yang telah di push jika dirasa sudah tidak digunakan</li>
 </ul>
+
+```
+git branch -D nama-branch
+```
