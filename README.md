@@ -81,3 +81,6 @@ git pull origin main
 <ul>
   <li>Hapus branch yang telah di push jika dirasa sudah tidak digunakan</li>
 </ul>
+<ul>
+  <li>Untuk mengerjakan fitur baru silakan ulangi dari langkah 2</li>
+</ul>
