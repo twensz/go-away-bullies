@@ -34,10 +34,15 @@ git checkout (nama-branch)
 ```
 
 <ul>
-  <li>Jangan lupa commit sebagai checkpoint</li>
+  <li>Ngoding .......</li>
+</ul>
+
+<ul>
+  <li>Setelah menyelesaikan beberapa point jangan lupa commit sebagai checkpoint</li>
 </ul>
   
   ```bash
+git add .
 git commit -m 'pesan commit'
 ```
 
