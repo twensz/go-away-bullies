@@ -1,13 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { addArtikel } from '../../data/artikel-source';
-import SwalCustom from '../../data/swal-custom';
-import useInput from '../../hooks/useInput';
-import renderArtikelFormTemplate from '../../utils/template-creator';
-import AdminTemplate from './AdminTemplate';
+import { addArtikel } from '../../../data/artikel-source';
+import SwalCustom from '../../../data/swal-custom';
+import useInput from '../../../hooks/useInput';
 
-function AdminArtikelTambah() {
+import Template from '../../../components/admin/template/Template';
+import FormArtikel from '../../../components/admin/FormArtikel';
+
+function ArtikelTambah() {
   const navigate = useNavigate();
 
   const [judul, onJudulChange] = useInput('');
@@ -33,7 +34,7 @@ function AdminArtikelTambah() {
       <>
         <h2 className="fs-4 mb-4">Tambah Artikel Baru</h2>
 
-        {renderArtikelFormTemplate(
+        {FormArtikel(
           'Tambah Artikel',
           {
             onSubmit,
@@ -49,7 +50,7 @@ function AdminArtikelTambah() {
     );
   }
 
-  return <AdminTemplate content={renderContent()} />;
+  return <Template content={renderContent()} />;
 }
 
-export default AdminArtikelTambah;
+export default ArtikelTambah;

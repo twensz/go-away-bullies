@@ -12,10 +12,10 @@ import db from './firebase-config';
 
 import SwalCustom from './swal-custom';
 
-async function getAllArtikel() {
+async function getAllData(collectionName) {
   try {
     const result = [];
-    const querySnapshot = await getDocs(collection(db, 'artikel'));
+    const querySnapshot = await getDocs(collection(db, collectionName));
     querySnapshot.forEach((document) => {
       result.push({
         id: document.id,
@@ -29,11 +29,10 @@ async function getAllArtikel() {
     return false;
   }
 }
-
-async function getArtikel(id) {
+async function getData(collectionName, id) {
   try {
     let result;
-    const docRef = doc(db, 'artikel', id);
+    const docRef = doc(db, collectionName, id);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -46,17 +45,10 @@ async function getArtikel(id) {
     return false;
   }
 }
-
-async function addArtikel({
-  judul,
-  isi,
-  penulis,
-}) {
+async function addData(collectionName, data) {
   try {
-    await addDoc(collection(db, 'artikel'), {
-      judul,
-      isi,
-      penulis,
+    await addDoc(collection(db, collectionName), {
+      ...data,
       dibuatPada: Timestamp.now(),
     });
 
@@ -66,24 +58,22 @@ async function addArtikel({
     return false;
   }
 }
-
-async function updateArtikel({ id, data }) {
+async function deleteData(collectionName, id) {
   try {
-    await updateDoc(doc(db, 'artikel', id), {
+    await deleteDoc(doc(db, 'artikel', id));
+  } catch (error) {
+    await SwalCustom.showError(error);
+  }
+}
+async function updateData(collectionName, { id, data }) {
+  try {
+    await updateDoc(doc(db, collectionName, id), {
       ...data,
     });
     return true;
   } catch (error) {
     await SwalCustom.showError(error);
     return false;
-  }
-}
-
-async function deleteArtikel(id) {
-  try {
-    await deleteDoc(doc(db, 'artikel', id));
-  } catch (error) {
-    await SwalCustom.showError(error);
   }
 }
 
@@ -99,10 +89,10 @@ function formatDate(timestamp) {
 }
 
 export {
-  getAllArtikel,
-  getArtikel,
-  addArtikel,
-  updateArtikel,
-  deleteArtikel,
+  getAllData,
+  getData,
+  addData,
+  updateData,
+  deleteData,
   formatDate,
 };

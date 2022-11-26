@@ -1,0 +1,17 @@
+$primary: #436D94;
+@import "bootstrap";
+
+@import "admin/template.scss";
+@import "admin/artikel.css";
+@import "admin/laporan-detail.css";
+
+.min-width-300 {
+  min-width: 300px;
+}
+.min-width-150 {
+  min-width: 150px;
+}
+
+.swal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}

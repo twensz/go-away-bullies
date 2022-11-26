@@ -1,11 +1,13 @@
 import React from 'react';
-import { BsPencil, BsTrash } from 'react-icons/bs';
+import { BsPencil, BsTrash, BsFolder2Open } from 'react-icons/bs';
 
-import { deleteArtikel, formatDate, getAllArtikel } from '../../data/artikel-source';
-import AdminTemplate from './AdminTemplate';
-import SwalCustom from '../../data/swal-custom';
+import { deleteData, getAllData, formatDate } from '../../../data/data-source';
+import SwalCustom from '../../../data/swal-custom';
+import Template from '../../../components/admin/template/Template';
 
-function AdminArtikel() {
+function Artikel() {
+  const collectionName = 'artikel';
+
   const [artikels, setArtikels] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 
@@ -15,7 +17,7 @@ function AdminArtikel() {
     }
 
     SwalCustom.showLoading();
-    await deleteArtikel(id);
+    await deleteData(collectionName, id);
     await SwalCustom.showSuccess('Berhasil menghapus artikel');
 
     window.location.reload();
@@ -23,14 +25,14 @@ function AdminArtikel() {
 
   React.useEffect(() => {
     (async () => {
-      const result = await getAllArtikel();
+      const result = await getAllData(collectionName);
 
       setArtikels(result);
       setLoading(false);
     })();
   }, []);
 
-  function renderArtikel() {
+  function renderTableData() {
     if (loading) {
       return (
         <tr>
@@ -50,14 +52,14 @@ function AdminArtikel() {
         <tr key={artikel.id}>
           <th scope="row">{index + 1}</th>
           <td>{artikel.data.judul}</td>
-          <td className="pre-line">
+          <td className="min-width-300 pre-line">
             {artikel.data.isi}
           </td>
           <td>{artikel.data.penulis}</td>
           <td>{formatDate(artikel.data.dibuatPada)}</td>
           <td>
             <div className="d-flex flex-nowrap">
-              <a className="btn btn-primary me-1 d-flex align-items-center flex-nowrap" href={`/artikel-ubah/${artikel.id}`}>
+              <a className="btn btn-primary me-1 d-flex align-items-center flex-nowrap" href={`/artikel/ubah/${artikel.id}`}>
                 <BsPencil className="me-sm-1" />
                 <span className="d-none d-sm-inline">Ubah</span>
               </a>
@@ -75,16 +77,23 @@ function AdminArtikel() {
       ));
     }
 
-    return null;
+    return (
+      <tr>
+        <td colSpan="6">
+          <div className="my-5 d-flex align-items-center justify-content-center">
+            <BsFolder2Open className="fs-4 me-2 text-dark text-opacity-75" />
+            <span className="fs-5 text-dark text-opacity-75">Data masih kosong</span>
+          </div>
+        </td>
+      </tr>
+    );
   }
 
   function renderContent() {
     return (
       <>
         <h2 className="fs-3 mb-3">Artikel</h2>
-
-        <a className="btn btn-primary mb-2" href="/artikel-tambah">Tambah Artikel</a>
-
+        <a className="btn btn-primary mb-2" href="/artikel/tambah">Tambah Artikel</a>
         <div className="table-responsive">
           <table className="table">
             <thead>
@@ -98,7 +107,7 @@ function AdminArtikel() {
               </tr>
             </thead>
             <tbody>
-              {renderArtikel()}
+              {renderTableData()}
             </tbody>
           </table>
         </div>
@@ -106,7 +115,7 @@ function AdminArtikel() {
     );
   }
 
-  return <AdminTemplate content={renderContent()} />;
+  return <Template content={renderContent()} />;
 }
 
-export default AdminArtikel;
+export default Artikel;

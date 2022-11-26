@@ -1,7 +1,0 @@
-@import "admin.css";
-@import "admin-artikel.css";
-@import "admin-detail-laporan.css";
-
-.swal-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-}

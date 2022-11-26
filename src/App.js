@@ -1,22 +1,22 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import AdminArtikel from './pages/admin/AdminArtikel';
-import AdminArtikelTambah from './pages/admin/AdminArtikelTambah';
-import AdminArtikelUbah from './pages/admin/AdminArtikelUbah';
 
-import AdminDashboard from './pages/admin/AdminDashboard';
-import AdminDetailLaporan from './pages/admin/AdminDetailLaporan';
-import AdminLaporan from './pages/admin/AdminLaporan';
+import Dashboard from './pages/admin/dashboard/Dashboard';
+import Laporan from './pages/admin/laporan/Laporan';
+import LaporanTambah from './pages/admin/laporan/LaporanTambah';
+import Artikel from './pages/admin/artikel/Artikel';
+import ArtikelTambah from './pages/admin/artikel/ArtikelTambah';
+import ArtikelUbah from './pages/admin/artikel/ArtikelUbah';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<AdminDashboard />} />
-      <Route path="/laporan" element={<AdminLaporan />} />
-      <Route path="/laporan/:id" element={<AdminDetailLaporan />} />
-      <Route path="/artikel" element={<AdminArtikel />} />
-      <Route path="/artikel-ubah/:id" element={<AdminArtikelUbah />} />
-      <Route path="/artikel-tambah" element={<AdminArtikelTambah />} />
+      <Route path="/" element={<Dashboard />} />
+      <Route path="/artikel" element={<Artikel />} />
+      <Route path="/artikel/tambah" element={<ArtikelTambah />} />
+      <Route path="/artikel/ubah/:id" element={<ArtikelUbah />} />
+      <Route path="/laporan" element={<Laporan />} />
+      <Route path="/laporan/tambah" element={<LaporanTambah />} />
     </Routes>
   );
 }

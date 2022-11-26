@@ -1,13 +1,14 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { getArtikel, updateArtikel } from '../../data/artikel-source';
-import SwalCustom from '../../data/swal-custom';
-import useInput from '../../hooks/useInput';
-import renderArtikelFormTemplate from '../../utils/template-creator';
-import AdminTemplate from './AdminTemplate';
+import { getArtikel, updateArtikel } from '../../../data/artikel-source';
+import SwalCustom from '../../../data/swal-custom';
+import useInput from '../../../hooks/useInput';
 
-function AdminArtikelUbah() {
+import Template from '../../../components/admin/template/Template';
+import FormArtikel from '../../../components/admin/FormArtikel';
+
+function ArtikelUbah() {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -48,7 +49,7 @@ function AdminArtikelUbah() {
       <>
         <h2 className="fs-4 mb-4">Ubah Artikel</h2>
 
-        {renderArtikelFormTemplate(
+        {FormArtikel(
           'Ubah Artikel',
           {
             onSubmit,
@@ -64,7 +65,7 @@ function AdminArtikelUbah() {
     );
   }
 
-  return <AdminTemplate content={renderContent()} />;
+  return <Template content={renderContent()} />;
 }
 
-export default AdminArtikelUbah;
+export default ArtikelUbah;
