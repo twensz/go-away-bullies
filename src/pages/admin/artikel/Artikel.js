@@ -1,5 +1,9 @@
 import React from 'react';
-import { BsPencil, BsTrash, BsFolder2Open } from 'react-icons/bs';
+import {
+  BsPencil,
+  BsTrash,
+  BsFolder2Open,
+} from 'react-icons/bs';
 
 import { deleteData, getAllData, formatDate } from '../../../data/data-source';
 import SwalCustom from '../../../data/swal-custom';
@@ -49,7 +53,7 @@ function Artikel() {
 
     if (artikels.length > 0) {
       return artikels.map((artikel, index) => (
-        <tr key={artikel.id}>
+        <tr key={artikel.id} className="align-middle">
           <th scope="row">{index + 1}</th>
           <td>{artikel.data.judul}</td>
           <td className="min-width-300 pre-line">
@@ -59,17 +63,15 @@ function Artikel() {
           <td>{formatDate(artikel.data.dibuatPada)}</td>
           <td>
             <div className="d-flex flex-nowrap">
-              <a className="btn btn-primary me-1 d-flex align-items-center flex-nowrap" href={`/artikel/ubah/${artikel.id}`}>
-                <BsPencil className="me-sm-1" />
-                <span className="d-none d-sm-inline">Ubah</span>
+              <a className="btn btn-icon btn-primary me-1" href={`/artikel/ubah/${artikel.id}`}>
+                <BsPencil />
               </a>
               <button
-                className="btn btn-danger me-1 d-flex align-items-center flex-nowrap"
+                className="btn btn-danger me-1"
                 type="button"
                 onClick={() => onDelete(artikel.id)}
               >
-                <BsTrash className="me-sm-1" />
-                <span className="d-none d-sm-inline">Hapus</span>
+                <BsTrash />
               </button>
             </div>
           </td>
@@ -92,10 +94,12 @@ function Artikel() {
   function renderContent() {
     return (
       <>
-        <h2 className="fs-3 mb-3">Artikel</h2>
-        <a className="btn btn-primary mb-2" href="/artikel/tambah">Tambah Artikel</a>
+        <h2 className="fs-3 mb-4 text-primary">Artikel</h2>
+        <a className="btn btn-primary mb-2" href="/artikel/tambah">
+          Tambah Artikel
+        </a>
         <div className="table-responsive">
-          <table className="table">
+          <table className="table table-bordered">
             <thead>
               <tr>
                 <th scope="col">#</th>

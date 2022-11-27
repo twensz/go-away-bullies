@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Dashboard from './pages/admin/dashboard/Dashboard';
 import Laporan from './pages/admin/laporan/Laporan';
 import LaporanTambah from './pages/admin/laporan/LaporanTambah';
 import Artikel from './pages/admin/artikel/Artikel';
@@ -11,12 +10,12 @@ import ArtikelUbah from './pages/admin/artikel/ArtikelUbah';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Dashboard />} />
+      <Route path="/" element={<Laporan />} />
+      <Route path="/laporan" element={<Laporan />} />
+      <Route path="/laporan/tambah" element={<LaporanTambah />} />
       <Route path="/artikel" element={<Artikel />} />
       <Route path="/artikel/tambah" element={<ArtikelTambah />} />
       <Route path="/artikel/ubah/:id" element={<ArtikelUbah />} />
-      <Route path="/laporan" element={<Laporan />} />
-      <Route path="/laporan/tambah" element={<LaporanTambah />} />
     </Routes>
   );
 }

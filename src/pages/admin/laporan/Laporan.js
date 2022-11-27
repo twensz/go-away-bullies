@@ -86,17 +86,18 @@ function Laporan() {
           </td>
           <td>
             <div className="d-flex flex-nowrap">
-              <a className="btn btn-primary me-1 d-flex align-items-center flex-nowrap" href={`/laporan/ubah/${laporan.id}`}>
-                <BsPencil className="me-sm-1" />
-                <span className="d-none d-sm-inline">Ubah</span>
+              <a
+                className="btn btn-icon btn-primary me-1"
+                href={`/laporan/ubah/${laporan.id}`}
+              >
+                <BsPencil />
               </a>
               <button
-                className="btn btn-danger me-1 d-flex align-items-center flex-nowrap"
+                className="btn btn-icon btn-danger me-1"
                 type="button"
                 onClick={() => onDelete(laporan.id)}
               >
-                <BsTrash className="me-sm-1" />
-                <span className="d-none d-sm-inline">Hapus</span>
+                <BsTrash />
               </button>
             </div>
           </td>
@@ -118,17 +119,17 @@ function Laporan() {
   function renderContent() {
     return (
       <>
-        <h2 className="fs-3 mb-3">Laporan</h2>
+        <h2 className="text-primary fs-3 mb-4">Laporan</h2>
         <a className="btn btn-primary mb-2" href="/laporan/tambah">Tambah Laporan</a>
         <div className="table-responsive">
-          <table className="table">
+          <table className="table table-bordered">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Judul</th>
                 <th scope="col">Isi</th>
                 <th scope="col">Lokasi</th>
-                <th scope="col">Waktu Kejadian</th>
+                <th scope="col">Waktu</th>
                 <th scope="col">Status</th>
                 <th scope="col">Aksi</th>
               </tr>

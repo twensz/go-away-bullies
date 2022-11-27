@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BsX } from 'react-icons/bs';
 
+import logo from '../../../images/logo.png';
+
 function Sidebar({ onSidebarToggleCLick }) {
   return (
     <nav className="admin-sidebar d-flex flex-column flex-shrink-0 p-3 bg-light">
       <div className="d-flex justify-content-between">
-        <a className="navbar-brand fs-4 fw-semibold" href="/">
-          GoAwayBullies!
+        <a className="navbar-brand fw-semibold" href="/">
+          <img src={logo} alt="logo" width="120" />
         </a>
         <button
           className="btn btn-outline-danger d-sm-flex d-md-none"

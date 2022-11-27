@@ -79,9 +79,8 @@ async function updateData(collectionName, { id, data }) {
 
 function formatDate(timestamp) {
   const options = {
-    weekday: 'long',
     year: 'numeric',
-    month: 'long',
+    month: 'numeric',
     day: 'numeric',
   };
 

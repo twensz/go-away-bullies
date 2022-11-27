@@ -1,9 +1,18 @@
 $primary: #436D94;
-@import "bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
-@import "admin/template.scss";
+@import "components/button.css";
+
+@import "admin/template.css";
 @import "admin/artikel.css";
 @import "admin/laporan-detail.css";
+
+th {
+  text-transform: uppercase;
+}
+th, td {
+  padding: 20px
+}
 
 .min-width-300 {
   min-width: 300px;

@@ -17,10 +17,6 @@
   min-width: 0;
 }
 
-.min-width-300 {
-  min-width: 300px;
-}
-
 @media (max-width: 768px) {
   .admin {
     position: relative;
