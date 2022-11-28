@@ -1,7 +1,8 @@
 import React from 'react';
+import Navigation from '../component/Navigation';
 
 function HomePage() {
-  return <h1>Hello World</h1>;
+  <Navigation />;
 }
 
 export default HomePage;
