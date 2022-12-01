@@ -2,3 +2,57 @@
     margin: 0px;
     padding: 0px;
 }
+.sidepict img {
+    width: 45%;
+    height: 20%;
+    display: flex;
+    float: left;
+}
+.container h3{
+    margin-left:100px;
+    margin-right: 200px;
+    float: right;
+    text-align: center;
+    font-size: 40px;
+}
+.container p{
+    margin: 100px 150px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    float: right;
+    text-align: center;
+    font-size: 30px;
+}
+.container .circle-logo{
+    border-radius: 100px;
+    float: right;
+    margin-left:100px;
+    margin-right: 250px;
+    margin-top: 200px;
+    padding: 50px;
+    background: #000000;
+}
+.container .circle-logo img{
+    width: 100px;
+}
+.container .form .login {
+    margin-top: 0px;
+    margin-left: 100px;
+    margin-right: 100px;
+    float: right;
+}
+.container .form .login label{
+    font-size: 20px;
+    margin-left: 50px;
+    margin-top: 20px;
+    position: relative;
+}
+.container .form input{
+    padding-left: 300px;
+    padding-top: 30px;
+    margin-bottom: 20px;
+    margin-top: -10px;
+    border: none;
+    border-radius: 20px;
+    background: #d9d9d9;
+}
