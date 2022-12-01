@@ -2,7 +2,11 @@
     margin: 0px;
     padding: 0px;
 }
+.container{
+    margin-top: 0px;
+}
 .sidepict img {
+    margin: 0px;
     width: 45%;
     height: 20%;
     display: flex;
@@ -28,7 +32,7 @@
     float: right;
     margin-left:100px;
     margin-right: 250px;
-    margin-top: 200px;
+    margin-top: 80px;
     padding: 50px;
     background: #000000;
 }
