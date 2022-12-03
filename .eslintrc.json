@@ -19,6 +19,9 @@
     ],
     "rules": {
         "linebreak-style": "off",
-        "react/jsx-filename-extension": "off"
+        "react/jsx-filename-extension": "off",
+        "react/jsx-no-bind": "off",
+        "no-restricted-syntax": "off",
+        "no-await-in-loop": "off"
     }
 }
