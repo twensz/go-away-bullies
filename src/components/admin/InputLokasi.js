@@ -88,6 +88,7 @@ function InputLokasi({ lokasi, onLokasiChange }) {
   React.useEffect(() => {
     if (firstRender) setFirstRender(false);
     if (!firstRender) {
+      setKota('');
       setKecamatan('');
       setKelurahan('');
     }
@@ -95,6 +96,7 @@ function InputLokasi({ lokasi, onLokasiChange }) {
   React.useEffect(() => {
     if (firstRender) setFirstRender(false);
     if (!firstRender) {
+      setKecamatan('');
       setKelurahan('');
     }
   }, [kota]);
@@ -112,10 +114,10 @@ function InputLokasi({ lokasi, onLokasiChange }) {
 
   return (
     <>
-      <label htmlFor="inputProvinsi" className="form-label w-auto">
-        Provinsi
+      <div>Pilih Lokasi</div>
+      <div className="container">
         <select
-          className="form-select mt-1"
+          className="form-select d-inline me-2 mt-1 w-auto"
           aria-label="Pilih provinsi"
           value={provinsi ? provinsi.id : ''}
           onChange={onProvinsiChangeHandler}
@@ -130,11 +132,8 @@ function InputLokasi({ lokasi, onLokasiChange }) {
             </option>
           ))}
         </select>
-      </label>
-      <label htmlFor="inputKota" className="form-label w-auto">
-        Kota
         <select
-          className="form-select mt-1"
+          className="form-select d-inline me-2 mt-1 w-auto"
           aria-label="Pilih kota"
           value={kota ? kota.id : ''}
           onChange={onKotaChangeHandler}
@@ -150,11 +149,8 @@ function InputLokasi({ lokasi, onLokasiChange }) {
             </option>
           ))}
         </select>
-      </label>
-      <label htmlFor="inputKecamatan" className="form-label w-auto">
-        Kecamatan
         <select
-          className="form-select mt-1"
+          className="form-select d-inline me-2 mt-1 w-auto"
           aria-label="Pilih kecamatan"
           value={kecamatan ? kecamatan.id : ''}
           onChange={onKecamatanChangeHandler}
@@ -170,11 +166,8 @@ function InputLokasi({ lokasi, onLokasiChange }) {
             </option>
           ))}
         </select>
-      </label>
-      <label htmlFor="inputKelurahan" className="form-label w-auto">
-        Kelurahan
         <select
-          className="form-select mt-1"
+          className="form-select d-inline me-2 mt-1 w-auto"
           aria-label="Pilih kelurahan"
           value={kelurahan ? kelurahan.id : ''}
           onChange={onKelurahanChangeHandler}
@@ -190,7 +183,7 @@ function InputLokasi({ lokasi, onLokasiChange }) {
             </option>
           ))}
         </select>
-      </label>
+      </div>
     </>
   );
 }

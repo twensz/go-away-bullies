@@ -11,9 +11,9 @@ const SwalCustom = {
     });
   },
   showConfirm() {
-    return swal('Are you sure?', {
+    return swal('Apakah kamu yakin?', {
       dangerMode: true,
-      buttons: [true, 'Yes'],
+      buttons: [true, 'Ya'],
     });
   },
   async showSuccess(message) {
