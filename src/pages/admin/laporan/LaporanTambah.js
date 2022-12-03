@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { addData } from '../../../data/data-source';
 import SwalCustom from '../../../data/swal-custom';
 import useInput from '../../../hooks/useInput';
-import Template from '../../../components/admin/template/Template';
+import Template from '../../../components/admin/Template';
 import { renderLaporanFormTemplate } from '../../../utils/template-creator';
 
 function LaporanTambah() {

@@ -5,7 +5,7 @@ import { addArtikel } from '../../../data/artikel-source';
 import SwalCustom from '../../../data/swal-custom';
 import useInput from '../../../hooks/useInput';
 
-import Template from '../../../components/admin/template/Template';
+import Template from '../../../components/admin/Template';
 import FormArtikel from '../../../components/admin/FormArtikel';
 
 function ArtikelTambah() {

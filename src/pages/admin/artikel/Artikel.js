@@ -7,7 +7,7 @@ import {
 
 import { deleteData, getAllData, formatDate } from '../../../data/data-source';
 import SwalCustom from '../../../data/swal-custom';
-import Template from '../../../components/admin/template/Template';
+import Template from '../../../components/admin/Template';
 
 function Artikel() {
   const collectionName = 'artikel';

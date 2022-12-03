@@ -1,11 +1,8 @@
 $primary: #436D94;
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+@import "admin.css";
 @import "components/button.css";
-
-@import "admin/template.css";
-@import "admin/artikel.css";
-@import "admin/laporan-detail.css";
 
 th {
   text-transform: uppercase;

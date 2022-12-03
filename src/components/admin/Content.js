@@ -4,8 +4,8 @@ import { BsList } from 'react-icons/bs';
 
 function Content({ onSidebarToggleCLick, content }) {
   return (
-    <div className="admin-content flex-grow-1">
-      <div className="topbar navbar navbar-expand-lg bg-light">
+    <div className="admin-content flex-grow-1 d-flex flex-column bg-light">
+      <div className="topbar navbar navbar-expand-lg bg-white">
         <div className="container px-4">
           <button
             className="btn btn-outline-primary d-flex"
@@ -17,7 +17,7 @@ function Content({ onSidebarToggleCLick, content }) {
           </button>
         </div>
       </div>
-      <div className="container p-4">{content}</div>
+      <div className="container p-4 flex-grow-1">{content}</div>
     </div>
   );
 }

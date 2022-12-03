@@ -3,7 +3,7 @@ import { BsPencil, BsTrash, BsFolder2Open } from 'react-icons/bs';
 
 import { deleteData, getAllData, updateData } from '../../../data/data-source';
 import SwalCustom from '../../../data/swal-custom';
-import Template from '../../../components/admin/template/Template';
+import Template from '../../../components/admin/Template';
 
 function Laporan() {
   const collectionName = 'laporan';

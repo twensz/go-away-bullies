@@ -5,7 +5,7 @@ import {
 import { FaSmileBeam } from 'react-icons/fa';
 
 import { getAllData } from '../../data/data-source';
-import Template from '../../components/admin/template/Template';
+import Template from '../../components/admin/Template';
 
 function Dashboard() {
   const [totalDilaporkan, setTotalDilaporkan] = React.useState(0);
