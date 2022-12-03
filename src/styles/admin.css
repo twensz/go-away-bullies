@@ -1,0 +1,51 @@
+.admin {
+  display: flex;
+  max-width: 100vw;
+  align-items: stretch;
+}
+
+.admin-sidebar {
+  position: fixed;
+  z-index: 9;
+  width: 250px;
+  min-height: 100vh;
+  transition: 0.3s;
+}
+.admin-sidebar.toggle {
+  margin-left: -250px;
+}
+
+.admin-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 0;
+  margin-left: 250px;
+  transition: 0.3s;
+}
+.admin-content.toggle {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .admin {
+    position: relative;
+  }
+  .admin-sidebar {
+    width: 350px;
+    margin-left: -350px;
+  }
+  .admin-sidebar.toggle {
+    margin-left: 0px;
+  }
+  .admin-content {
+    margin-left: 0;
+  }
+}
+
+/* Laporan */
+.img-thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
