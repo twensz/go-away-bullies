@@ -2,6 +2,7 @@ import React from 'react';
 import {
   BsPencil,
   BsTrash,
+  BsEye,
   BsFolder2Open,
 } from 'react-icons/bs';
 
@@ -10,9 +11,7 @@ import SwalCustom from '../../../data/swal-custom';
 import Template from '../../../components/admin/Template';
 
 function Artikel() {
-  const collectionName = 'artikel';
-
-  const [artikels, setArtikels] = React.useState([]);
+  const [listArtikel, setListArtikel] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 
   async function onDelete(id) {
@@ -21,7 +20,7 @@ function Artikel() {
     }
 
     SwalCustom.showLoading();
-    await deleteData(collectionName, id);
+    await deleteData('artikel', id);
     await SwalCustom.showSuccess('Berhasil menghapus artikel');
 
     window.location.reload();
@@ -29,9 +28,9 @@ function Artikel() {
 
   React.useEffect(() => {
     (async () => {
-      const result = await getAllData(collectionName);
+      const result = await getAllData('artikel');
 
-      setArtikels(result);
+      setListArtikel(result);
       setLoading(false);
     })();
   }, []);
@@ -51,19 +50,19 @@ function Artikel() {
       );
     }
 
-    if (artikels.length > 0) {
-      return artikels.map((artikel, index) => (
-        <tr key={artikel.id} className="align-middle">
+    if (listArtikel.length > 0) {
+      return listArtikel.map((artikel, index) => (
+        <tr key={artikel.id}>
           <th scope="row">{index + 1}</th>
-          <td>{artikel.data.judul}</td>
-          <td className="min-width-300 pre-line">
-            {artikel.data.isi}
-          </td>
+          <td className="text-nowrap">{artikel.data.judul}</td>
           <td>{artikel.data.penulis}</td>
           <td>{formatDate(artikel.data.dibuatPada)}</td>
           <td>
             <div className="d-flex flex-nowrap">
-              <a className="btn btn-icon btn-primary me-1" href={`/artikel/ubah/${artikel.id}`}>
+              <a className="btn btn-icon btn-primary me-1" href={`/artikel/${artikel.id}`}>
+                <BsEye />
+              </a>
+              <a className="btn btn-icon btn-success me-1" href={`/artikel/ubah/${artikel.id}`}>
                 <BsPencil />
               </a>
               <button
@@ -94,17 +93,14 @@ function Artikel() {
   function renderContent() {
     return (
       <>
-        <h2 className="fs-3 mb-4 text-primary">Artikel</h2>
-        <a className="btn btn-primary mb-2" href="/artikel/tambah">
-          Tambah Artikel
-        </a>
+        <h2 className="text-primary fs-3 mb-4">Artikel</h2>
+        <a className="btn btn-primary mb-3" href="/artikel/tambah">Tambah Artikel</a>
         <div className="table-responsive">
-          <table className="table table-bordered">
+          <table className="table bg-white rounded shadow">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Judul</th>
-                <th scope="col">Isi</th>
                 <th scope="col">Penulis</th>
                 <th scope="col">Dibuat pada</th>
                 <th scope="col">Aksi</th>

@@ -6,6 +6,7 @@ import { FaSmileBeam } from 'react-icons/fa';
 
 import { getAllData } from '../../data/data-source';
 import Template from '../../components/admin/Template';
+import Spinner from '../../components/Spinner';
 
 function Dashboard() {
   const [totalDilaporkan, setTotalDilaporkan] = React.useState(0);
@@ -39,16 +40,13 @@ function Dashboard() {
       setTotalDilaporkan(0);
       setTotalDalamProses(0);
       setTotalSelesai(0);
+      setLoading(true);
     };
   }, []);
 
   function renderContent() {
     if (loading) {
-      return (
-        <div className="p-5 h-100 d-flex justify-content-center align-items-center">
-          <div className="spinner-border" role="status" />
-        </div>
-      );
+      return <Spinner />;
     }
 
     return (
