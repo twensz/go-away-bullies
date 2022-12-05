@@ -6,9 +6,12 @@ import {
   Timestamp,
   where,
 } from 'firebase/firestore';
+import AES from 'crypto-js/aes';
+import { enc } from 'crypto-js';
 import { db } from './firebase-config';
 
 import SwalCustom from './swal-custom';
+import CONFIG from '../globals/config';
 
 const collectionRef = collection(db, 'user');
 
@@ -42,13 +45,14 @@ async function login({ email, password }) {
     const q = query(
       collectionRef,
       where('email', '==', email),
-      where('password', '==', password),
     );
     const querySnapshot = await getDocs(q);
 
     querySnapshot.forEach((doc) => {
       const data = doc.data();
-      user = { id: doc.id, data };
+      const decryptedPassword = AES.decrypt(data.password, CONFIG.PASSWORD_CRYPTO_KEY)
+        .toString(enc.Utf8);
+      user = password === decryptedPassword ? { id: doc.id, data } : null;
     });
 
     return user || null;
@@ -74,11 +78,13 @@ async function register({
     return false;
   }
 
+  const encryptedPassword = AES.encrypt(password, CONFIG.PASSWORD_CRYPTO_KEY).toString();
+
   try {
     await addDoc(collectionRef, {
       nama,
       email,
-      password,
+      password: encryptedPassword,
       role,
       dibuatPada: Timestamp.now(),
     });
