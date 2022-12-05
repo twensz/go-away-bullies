@@ -13,7 +13,7 @@ import AdminArtikelTambah from './pages/admin/artikel/ArtikelTambah';
 import AdminArtikelUbah from './pages/admin/artikel/ArtikelUbah';
 
 import Beranda from './pages/Beranda';
-// import Login from './pages/auth/Login';
+import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import SwalCustom from './data/swal-custom';
 
@@ -26,12 +26,13 @@ function App() {
     setAuthedUser(null);
     putAccessToken('');
     navigate('/');
+    SwalCustom.showSuccess('Berhasil logout');
   }
 
-  // function onLoginSuccess(user) {
-  //   setAuthedUser(user);
-  //   putAccessToken(user.id);
-  // }
+  function onLoginSuccess(user) {
+    setAuthedUser(user);
+    putAccessToken(user.id);
+  }
 
   const authedUserContextValue = React.useMemo(() => (
     { authedUser, setAuthedUser, onLogout }
@@ -86,7 +87,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Beranda />} />
           <Route path="/register" element={<Register />} />
-          {/* <Route path="/login" element={<Login onLoginSuccess={onLoginSuccess} />} /> */}
+          <Route path="/login" element={<Login onLoginSuccess={onLoginSuccess} />} />
         </Routes>
       </AuthedUserContext.Provider>
     );
