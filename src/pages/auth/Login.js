@@ -37,12 +37,12 @@ function Login({ onLoginSuccess }) {
     return (
       <>
         <div className="text-center">
-          <img src={CONFIG.LOGO_IMAGE} alt="logo" width="100" />
-          <div className="fw-normal opacity-75 mt-3">
-            <div className="text-primary fw-semibold fs-5">Selamat datang,</div>
-            silahkan login dengan akun anda.
+          <img src={CONFIG.LOGO_IMAGE} alt="logo" width="120" />
+          <div className="fw-normal opacity-75 mt-1 mb-3">
+            Silahkan login dengan akun anda.
           </div>
         </div>
+
         <hr />
 
         <form onSubmit={onSubmit}>

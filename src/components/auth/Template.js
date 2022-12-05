@@ -5,7 +5,7 @@ import authSideHero from '../../images/auth-side-hero.jpg';
 
 function Template({ content }) {
   return (
-    <div className="auth row d-flex justify-content-center">
+    <div className="auth row d-flex justify-content-center g-0">
       <div className="auth__side-hero col-6 d-none d-md-block h-100">
         <img src={authSideHero} className="img-fluid" alt="Auth side hero" />
       </div>
