@@ -1,7 +1,7 @@
 import React from 'react';
 
-function HomePage() {
+function Beranda() {
   return <h1>Hello World</h1>;
 }
 
-export default HomePage;
+export default Beranda;
