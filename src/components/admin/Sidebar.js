@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BsX } from 'react-icons/bs';
 
+import AuthedUserContext from '../../contexts/AuthedUserContext';
 import CONFIG from '../../globals/config';
 
 function Sidebar({ onSidebarToggleCLick }) {
+  const { onLogout } = React.useContext(AuthedUserContext);
+
   return (
     <nav className="admin-sidebar d-flex flex-column flex-shrink-0 p-3 bg-white shadow">
       <div className="d-flex justify-content-between">
@@ -55,7 +58,7 @@ function Sidebar({ onSidebarToggleCLick }) {
         </a>
         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
           <li><a className="dropdown-item" href="/profile">Profile</a></li>
-          <li><button className="dropdown-item" type="button" onClick={() => { }}>Logout</button></li>
+          <li><button className="dropdown-item" type="button" onClick={onLogout}>Logout</button></li>
         </ul>
       </div>
     </nav>

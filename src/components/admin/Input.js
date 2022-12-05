@@ -12,7 +12,7 @@ function Input({
   const id = `${inputId}Input`;
   const className = 'form-control mt-1';
   const style = {
-    padding: '10px 20px',
+    padding: '7px 15px',
   };
 
   if (textarea) {
