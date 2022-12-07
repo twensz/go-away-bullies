@@ -16,12 +16,12 @@ import { db, storage } from './firebase-config';
 
 import SwalCustom from './swal-custom';
 
-async function getAllData(artikel) {
+async function getAllData(collectionName) {
   try {
     const result = [];
 
     const q = query(
-      collection(db, artikel),
+      collection(db, collectionName),
       orderBy('dibuatPada', 'desc'),
     );
     const querySnapshot = await getDocs(q);
