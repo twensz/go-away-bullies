@@ -16,6 +16,8 @@ import Beranda from './pages/Beranda';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import SwalCustom from './data/swal-custom';
+import ArtikelPage from './pages/Artikel/artikel';
+import DetailArtikel from './pages/Artikel/DetailArtikel';
 
 function App() {
   const navigate = useNavigate();
@@ -68,6 +70,7 @@ function App() {
               <Route path="/artikel" element={<AdminArtikel />} />
               <Route path="/artikel/tambah" element={<AdminArtikelTambah />} />
               <Route path="/artikel/ubah/:id" element={<AdminArtikelUbah />} />
+
             </Routes>
           </AuthedUserContext.Provider>
         );
@@ -77,6 +80,8 @@ function App() {
         <AuthedUserContext.Provider value={authedUserContextValue}>
           <Routes>
             <Route path="/" element={<Beranda />} />
+            <Route path="/artikel_list" element={<ArtikelPage />} />
+            <Route path="/detail_artikel/:id" element={<DetailArtikel />} />
           </Routes>
         </AuthedUserContext.Provider>
       );
@@ -88,6 +93,8 @@ function App() {
           <Route path="/" element={<Beranda />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLoginSuccess={onLoginSuccess} />} />
+          <Route path="/artikel_list" element={<ArtikelPage />} />
+
         </Routes>
       </AuthedUserContext.Provider>
     );
