@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BsEye, BsTrash, BsFolder2Open, BsChatFill, BsStopwatchFill, BsCheckCircleFill,
+  BsEye, BsTrash, BsFolder2Open,
 } from 'react-icons/bs';
 
 import {
@@ -9,6 +9,7 @@ import {
 import SwalCustom from '../../../data/swal-custom';
 import Template from '../../../components/admin/Template';
 import Spinner from '../../../components/Spinner';
+import StatusLaporan from '../../../components/laporan/StatusLaporan';
 
 function Laporan() {
   const [listLaporan, setListLaporan] = React.useState([]);
@@ -52,32 +53,6 @@ function Laporan() {
     };
   }, []);
 
-  function renderStatusLaporan(status) {
-    if (status === 'dilaporkan') {
-      return (
-        <div className="laporan-item__status laporan-item__status--dilaporkan mx-auto">
-          <BsChatFill className="me-2" />
-          <span>Dilaporkan</span>
-        </div>
-      );
-    }
-    if (status === 'dalamProses') {
-      return (
-        <div className="laporan-item__status laporan-item__status--proses mx-auto">
-          <BsStopwatchFill className="me-2" />
-          <span>Dalam Proses</span>
-        </div>
-      );
-    }
-
-    return (
-      <div className="laporan-item__status laporan-item__status--selesai mx-auto">
-        <BsCheckCircleFill className="me-2" />
-        <span>Selesai</span>
-      </div>
-    );
-  }
-
   function renderTableData() {
     if (loading) {
       return (
@@ -100,7 +75,9 @@ function Laporan() {
           <td className="text-nowrap">{laporan.data.lokasi.provinsi.nama}</td>
           <td className="text-nowrap">{formatDateForInput(laporan.data.waktuKejadian)}</td>
           <td className="text-center">
-            {renderStatusLaporan(laporan.data.status)}
+            <div className="d-flex justify-content-center">
+              <StatusLaporan status={laporan.data.status} />
+            </div>
           </td>
           <td>
             <div className="d-flex flex-nowrap justify-content-center">

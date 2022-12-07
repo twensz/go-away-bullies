@@ -12,6 +12,7 @@ import AdminArtikel from './pages/admin/artikel/Artikel';
 import AdminArtikelTambah from './pages/admin/artikel/ArtikelTambah';
 import AdminArtikelUbah from './pages/admin/artikel/ArtikelUbah';
 import AdminArtikelDetail from './pages/admin/artikel/ArtikelDetail';
+import AdminProfil from './pages/admin/Profil';
 
 import Beranda from './pages/Beranda';
 import Login from './pages/auth/Login';
@@ -63,6 +64,7 @@ function App() {
           <AuthedUserContext.Provider value={authedUserContextValue}>
             <Routes>
               <Route path="/" element={<Dashboard />} />
+              <Route path="/profil/:id" element={<AdminProfil />} />
               <Route path="/laporan" element={<AdminLaporan />} />
               <Route path="/laporan/:id" element={<AdminLaporanDetail />} />
               <Route path="/laporan/tambah" element={<AdminLaporanTambah />} />

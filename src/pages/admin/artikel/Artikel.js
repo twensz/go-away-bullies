@@ -9,6 +9,7 @@ import {
 import { deleteData, getAllData, formatDateNum } from '../../../data/data-source';
 import SwalCustom from '../../../data/swal-custom';
 import Template from '../../../components/admin/Template';
+import Spinner from '../../../components/Spinner';
 
 function Artikel() {
   const [listArtikel, setListArtikel] = React.useState([]);
@@ -40,11 +41,7 @@ function Artikel() {
       return (
         <tr>
           <td colSpan="6">
-            <div className="my-4 text-center">
-              <div className="spinner-border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            </div>
+            <Spinner />
           </td>
         </tr>
       );
