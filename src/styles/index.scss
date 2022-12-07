@@ -6,6 +6,7 @@ $warning: darken($color: $warning, $amount: 10%);
 @import "admin.scss";
 @import "auth.css";
 @import "components/button.css";
+@import "artikel.css";
 
 #root {
   color: #37495a;
