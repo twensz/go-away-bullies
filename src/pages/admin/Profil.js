@@ -39,7 +39,6 @@ function Profil() {
   }, []);
 
   function renderContent() {
-    console.log(loading);
     if (loading) {
       return <Spinner />;
     }
