@@ -6,7 +6,7 @@ import AuthedUserContext from '../../contexts/AuthedUserContext';
 import CONFIG from '../../globals/config';
 
 function Sidebar({ onSidebarToggleCLick }) {
-  const { onLogout } = React.useContext(AuthedUserContext);
+  const { authedUser, onLogout } = React.useContext(AuthedUserContext);
 
   return (
     <nav className="admin-sidebar d-flex flex-column flex-shrink-0 p-3 bg-white shadow">
@@ -57,7 +57,7 @@ function Sidebar({ onSidebarToggleCLick }) {
           <img src={CONFIG.DEFAULT_AVATAR} alt="" width="35" height="35" className="border border-primary border-opacity-75 rounded-circle me-1" />
         </a>
         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a className="dropdown-item" href="/profile">Profile</a></li>
+          <li><a className="dropdown-item" href={`/profil/${authedUser.id}`}>Profile</a></li>
           <li><button className="dropdown-item" type="button" onClick={onLogout}>Logout</button></li>
         </ul>
       </div>

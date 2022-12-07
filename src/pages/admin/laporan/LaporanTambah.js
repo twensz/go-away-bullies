@@ -10,9 +10,12 @@ import useInput from '../../../hooks/useInput';
 import Template from '../../../components/admin/Template';
 import InputLokasi from '../../../components/admin/InputLokasi';
 import InputLabel from '../../../components/admin/InputLabel';
+import AuthedUserContext from '../../../contexts/AuthedUserContext';
 
 function LaporanTambah() {
   const navigate = useNavigate();
+
+  const { authedUser } = React.useContext(AuthedUserContext);
 
   const [judul, onJudulChange] = useInput('');
   const [isi, onIsiChange] = useInput('');
@@ -49,7 +52,7 @@ function LaporanTambah() {
       lokasi,
       waktuKejadian,
       lampiran: lampiranUrl,
-      // idUser: authedUser.id,
+      idUser: authedUser.id,
       status: 'dilaporkan',
     };
 
@@ -67,6 +70,7 @@ function LaporanTambah() {
         <form className="container" onSubmit={onSubmit}>
           <div className="row mb-2">
             <InputLabel
+              textLabel="Judul Laporan"
               placeholder="Judul Laporan"
               inputId="judul"
               value={judul}
@@ -76,6 +80,7 @@ function LaporanTambah() {
           <div className="row mb-2">
             <InputLabel
               textarea
+              textLabel="Isi Laporan"
               placeholder="Isi Laporan"
               inputId="isi"
               value={isi}
@@ -85,6 +90,7 @@ function LaporanTambah() {
           <div className="row mb-2">
             <InputLabel
               type="date"
+              textLabel="Waktu Kejadian"
               inputId="waktuKejadian"
               value={waktuKejadian}
               onValueChange={onWaktuKejadianChange}
@@ -96,26 +102,31 @@ function LaporanTambah() {
           <div className="row mb-2">
             <InputLabel
               type="file"
+              textLabel="Lampiran"
               inputId="lampiran"
               onValueChange={onLampiranChange}
+              required
             />
           </div>
           <div className="row mb-2">
-            <select
-              id="statusInput"
-              className="form-select mt-1"
-              aria-label="Pilih status laporan"
-              value={status || ''}
-              onChange={onStatusChange}
-              required
-            >
-              <option value="" disabled>
-                Pilih status
-              </option>
-              <option value="dilaporkan">dilaporkan</option>
-              <option value="dalamProses">dalamProses</option>
-              <option value="selesai">selesai</option>
-            </select>
+            <label htmlFor="statusInput">
+              Status
+              <select
+                id="statusInput"
+                className="form-select mt-1 w-auto"
+                aria-label="Pilih status laporan"
+                value={status || ''}
+                onChange={onStatusChange}
+                required
+              >
+                <option value="" disabled>
+                  Pilih status
+                </option>
+                <option value="dilaporkan">dilaporkan</option>
+                <option value="dalamProses">dalamProses</option>
+                <option value="selesai">selesai</option>
+              </select>
+            </label>
           </div>
           <div className="row mt-3 justify-content-end">
             <div className="col-auto">

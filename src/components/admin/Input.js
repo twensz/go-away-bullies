@@ -8,6 +8,7 @@ function Input({
   onValueChange,
   textarea = false,
   placeholder = `Masukan ${inputId} ...`,
+  required,
 }) {
   const id = `${inputId}Input`;
   const className = 'form-control mt-1';
@@ -25,7 +26,6 @@ function Input({
         onChange={onValueChange}
         style={style}
         rows="6"
-        required
       />
     );
   }
@@ -39,7 +39,7 @@ function Input({
       placeholder={placeholder}
       value={value}
       onChange={onValueChange}
-      required
+      required={required}
     />
   );
 }

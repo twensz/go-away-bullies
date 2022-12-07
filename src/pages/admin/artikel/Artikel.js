@@ -6,9 +6,10 @@ import {
   BsFolder2Open,
 } from 'react-icons/bs';
 
-import { deleteData, getAllData, formatDate } from '../../../data/data-source';
+import { deleteData, getAllData, formatDateNum } from '../../../data/data-source';
 import SwalCustom from '../../../data/swal-custom';
 import Template from '../../../components/admin/Template';
+import Spinner from '../../../components/Spinner';
 
 function Artikel() {
   const [listArtikel, setListArtikel] = React.useState([]);
@@ -40,11 +41,7 @@ function Artikel() {
       return (
         <tr>
           <td colSpan="6">
-            <div className="my-4 text-center">
-              <div className="spinner-border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            </div>
+            <Spinner />
           </td>
         </tr>
       );
@@ -56,7 +53,7 @@ function Artikel() {
           <th scope="row">{index + 1}</th>
           <td className="text-nowrap">{artikel.data.judul}</td>
           <td>{artikel.data.penulis}</td>
-          <td>{formatDate(artikel.data.dibuatPada)}</td>
+          <td>{formatDateNum(artikel.data.dibuatPada)}</td>
           <td>
             <div className="d-flex flex-nowrap">
               <a className="btn btn-icon btn-primary me-1" href={`/artikel/${artikel.id}`}>
