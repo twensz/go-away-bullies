@@ -103,6 +103,12 @@ function InputLokasi({ lokasi, onLokasiChange }) {
   React.useEffect(() => {
     if (firstRender) setFirstRender(false);
     if (!firstRender) {
+      setKelurahan('');
+    }
+  }, [kecamatan]);
+  React.useEffect(() => {
+    if (firstRender) setFirstRender(false);
+    if (!firstRender) {
       onLokasiChange({
         provinsi: { ...provinsi },
         kota: { ...kota },

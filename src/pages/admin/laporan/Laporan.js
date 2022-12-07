@@ -1,8 +1,10 @@
 import React from 'react';
-import { BsEye, BsTrash, BsFolder2Open } from 'react-icons/bs';
+import {
+  BsEye, BsTrash, BsFolder2Open, BsChatFill, BsStopwatchFill, BsCheckCircleFill,
+} from 'react-icons/bs';
 
 import {
-  deleteData, formatDateForInput, getAllData, getData, updateData,
+  deleteData, formatDateForInput, getAllData, getData,
 } from '../../../data/data-source';
 import SwalCustom from '../../../data/swal-custom';
 import Template from '../../../components/admin/Template';
@@ -20,16 +22,6 @@ function Laporan() {
     SwalCustom.showLoading();
     await deleteData('laporan', id);
     await SwalCustom.showSuccess('Berhasil menghapus laporan');
-
-    window.location.reload();
-  }
-
-  async function onStatusChange(id, status) {
-    const data = { id, data: { status } };
-
-    SwalCustom.showLoading();
-    await updateData('laporan', data);
-    await SwalCustom.showSuccess('Berhasil mengubah status laporan');
 
     window.location.reload();
   }
@@ -60,6 +52,32 @@ function Laporan() {
     };
   }, []);
 
+  function renderStatusLaporan(status) {
+    if (status === 'dilaporkan') {
+      return (
+        <div className="laporan-item__status laporan-item__status--dilaporkan mx-auto">
+          <BsChatFill className="me-2" />
+          <span>Dilaporkan</span>
+        </div>
+      );
+    }
+    if (status === 'dalamProses') {
+      return (
+        <div className="laporan-item__status laporan-item__status--proses mx-auto">
+          <BsStopwatchFill className="me-2" />
+          <span>Dalam Proses</span>
+        </div>
+      );
+    }
+
+    return (
+      <div className="laporan-item__status laporan-item__status--selesai mx-auto">
+        <BsCheckCircleFill className="me-2" />
+        <span>Selesai</span>
+      </div>
+    );
+  }
+
   function renderTableData() {
     if (loading) {
       return (
@@ -81,20 +99,11 @@ function Laporan() {
           <td className="text-nowrap">{laporan.data.user.nama}</td>
           <td className="text-nowrap">{laporan.data.lokasi.provinsi.nama}</td>
           <td className="text-nowrap">{formatDateForInput(laporan.data.waktuKejadian)}</td>
-          <td>
-            <select
-              className="form-select w-auto"
-              aria-label="Pilih status laporan"
-              value={laporan.data.status}
-              onChange={(event) => onStatusChange(laporan.id, event.target.value)}
-            >
-              <option value="dilaporkan">dilaporkan</option>
-              <option value="dalamProses">dalamProses</option>
-              <option value="selesai">selesai</option>
-            </select>
+          <td className="text-center">
+            {renderStatusLaporan(laporan.data.status)}
           </td>
           <td>
-            <div className="d-flex flex-nowrap">
+            <div className="d-flex flex-nowrap justify-content-center">
               <a className="btn btn-icon btn-primary me-1" href={`/laporan/${laporan.id}`}>
                 <BsEye />
               </a>
@@ -127,7 +136,6 @@ function Laporan() {
     return (
       <>
         <h2 className="text-primary fs-3 mb-4">Laporan</h2>
-        <a className="btn btn-primary mb-3" href="/laporan/tambah">Tambah Laporan</a>
         <div className="table-responsive">
           <table className="table bg-white rounded shadow">
             <thead>
@@ -136,8 +144,8 @@ function Laporan() {
                 <th scope="col">Pelapor</th>
                 <th scope="col">Lokasi</th>
                 <th scope="col">Waktu</th>
-                <th scope="col">Status</th>
-                <th scope="col">Aksi</th>
+                <th scope="col" className="text-center">Status</th>
+                <th scope="col" className="text-center">Aksi</th>
               </tr>
             </thead>
             <tbody>

@@ -136,6 +136,16 @@ function formatDate(timestamp) {
   return new Date(timestamp.seconds * 1000).toLocaleDateString('id-ID', options);
 }
 
+function formatDateNum(timestamp) {
+  const options = {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+  };
+
+  return new Date(timestamp.seconds * 1000).toLocaleDateString('id-ID', options);
+}
+
 function formatDateForInput(date) {
   const arrDate = date.split('-');
   const arrDateReverse = arrDate.reverse();
@@ -151,5 +161,6 @@ export {
   deleteData,
   uploadFile,
   formatDate,
+  formatDateNum,
   formatDateForInput,
 };

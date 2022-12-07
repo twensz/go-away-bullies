@@ -1,7 +1,9 @@
 $primary: #436D94;
-@import "../../node_modules/bootstrap/scss/bootstrap";
+$warning: #ffc107;
+$warning: darken($color: $warning, $amount: 10%);
+@import "~bootstrap/scss/bootstrap";
 
-@import "admin.css";
+@import "admin.scss";
 @import "auth.css";
 @import "components/button.css";
 

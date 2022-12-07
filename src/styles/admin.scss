@@ -43,8 +43,31 @@
   }
 }
 
-/* Laporan */
-.img-thumbnail {
+/* laporan */
+.laporan-item__status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-weight: 500;
+  border-radius: 1rem;
+  padding: 5px 15px;
+  font-size: 0.9rem;
+}
+.laporan-item__status--dilaporkan {
+  background-color: lighten($color: $primary, $amount: 50%);
+  color: $primary;
+}
+.laporan-item__status--proses {
+  background-color: lighten($color: $warning, $amount: 40%);
+  color: $warning;
+}
+.laporan-item__status--selesai {
+  background-color: lighten($color: $success, $amount: 50%);
+  color: $success;
+}
+
+.lampiran {
   width: 100px;
   height: 100px;
   object-fit: cover;

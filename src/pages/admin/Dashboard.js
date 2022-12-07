@@ -12,6 +12,7 @@ function Dashboard() {
   const [totalDilaporkan, setTotalDilaporkan] = React.useState(0);
   const [totalDalamProses, setTotalDalamProses] = React.useState(0);
   const [totalSelesai, setTotalSelesai] = React.useState(0);
+  const [totalArtikel, setTotalArtikel] = React.useState(0);
   const [loading, setLoading] = React.useState(true);
 
   function countStatusLaporan(data) {
@@ -33,6 +34,7 @@ function Dashboard() {
   React.useEffect(() => {
     (async () => {
       countStatusLaporan(await getAllData('laporan'));
+      setTotalArtikel((await getAllData('artikel')).length);
       setLoading(false);
     })();
 
@@ -119,7 +121,7 @@ function Dashboard() {
                   </div>
                   <div className="col">
                     <div className="text-opacity-75">Jumlah Artikel</div>
-                    <div className="fs-4 fw-bold text-opacity-75">{totalDilaporkan}</div>
+                    <div className="fs-4 fw-bold text-opacity-75">{totalArtikel}</div>
                   </div>
                 </div>
                 <div className="row mt-3">
