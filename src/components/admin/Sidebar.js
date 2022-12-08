@@ -24,11 +24,11 @@ function Sidebar({ onSidebarToggleCLick }) {
         </button>
       </div>
       <hr />
-      <ul className="nav nav-pills flex-column mb-auto">
+      <ul className="nav nav-pills flex-column mb-auto gap-2">
         <li className="nav-item">
           <a
             href="/"
-            className={window.location.pathname === '/' ? 'nav-link active' : 'nav-link link-dark'}
+            className={`nav-link p-auto ${window.location.pathname === '/' ? ' active' : ''}`}
             aria-current="page"
           >
             Dashboard
@@ -37,7 +37,7 @@ function Sidebar({ onSidebarToggleCLick }) {
         <li>
           <a
             href="/laporan"
-            className={window.location.pathname === '/laporan' ? 'nav-link active' : 'nav-link link-dark'}
+            className={window.location.pathname === '/laporan' ? 'nav-link active' : 'nav-link'}
           >
             Laporan
           </a>
@@ -45,7 +45,7 @@ function Sidebar({ onSidebarToggleCLick }) {
         <li>
           <a
             href="/artikel"
-            className={window.location.pathname === '/artikel' ? 'nav-link active' : 'nav-link link-dark'}
+            className={window.location.pathname === '/artikel' ? 'nav-link active' : 'nav-link'}
           >
             Artikel
           </a>
@@ -53,7 +53,7 @@ function Sidebar({ onSidebarToggleCLick }) {
       </ul>
       <hr />
       <div className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" id="navbarDropdown" href="/#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a className="dropdown-toggle" id="navbarDropdown" href="/#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <img src={CONFIG.DEFAULT_AVATAR} alt="" width="35" height="35" className="border border-primary border-opacity-75 rounded-circle me-1" />
         </a>
         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">

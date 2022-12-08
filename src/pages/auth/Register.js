@@ -82,7 +82,7 @@ function Register() {
           <div className="row mb-1 mt-3">
             <p>
               Sudah punya akun?
-              <a href="/login" className="ms-2">Login</a>
+              <a href="/login" className="ms-2 d-inline">Login</a>
             </p>
           </div>
           <div className="row mt-3 justify-content-end">

@@ -1,6 +1,3 @@
-// BELUM ADA LAMPIRAN => KOPI AJA DARI FUNGSI USER
-// Belum bisa tambah karena belum ada authUser
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
