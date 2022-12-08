@@ -1,3 +1,4 @@
+// Template
 .app-container {
   overflow-x: hidden;
   display: flex;
@@ -5,12 +6,23 @@
   justify-content: space-between;
   min-height: 100vh;
 }
-
 .content {
   flex-grow: 1;
 }
 
-/* Beranda */
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px !important;
+  border-radius: 10px;
+  transition: .15s;
+}
+.nav-link:hover {
+  color: white;
+  background-color: $primary;
+}
+
+// Beranda
 .hero {
   position: relative;
   background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/hero.jpg);
@@ -30,4 +42,9 @@
   max-height: 250px;
   overflow: hidden;
 }
-/* End Beranda */
+
+
+// Profil
+.profil__header {
+  background-color: darken($color: $primary, $amount: 15%);
+}

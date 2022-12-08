@@ -2,10 +2,12 @@ import React from 'react';
 
 import { getDataLimit } from '../data/data-source';
 import Template from '../components/user/Template';
-import berandaImage2 from '../images/beranda-2.jpg';
 import ArtikelList from '../components/ArtikelList';
+import AuthedUserContext from '../contexts/AuthedUserContext';
+import berandaImage2 from '../images/beranda-2.jpg';
 
 function Beranda() {
+  const { authedUser } = React.useContext(AuthedUserContext);
   const [listArtikel, setListArtikel] = React.useState([]);
 
   React.useEffect(() => {
@@ -31,7 +33,7 @@ function Beranda() {
                 !
               </span>
             </h3>
-            <div className="d-flex justify-content-center mt-2">
+            <div className={`${authedUser ? 'd-none' : 'd-flex'} justify-content-center mt-2`}>
               <a href="/login" className="btn btn-lg btn-primary">
                 Gabung
               </a>
@@ -61,9 +63,7 @@ function Beranda() {
 
           <section className="mt-3 py-5">
             <h2 className="fs-3 text-center">Artikel Terbaru</h2>
-            <div className="row gx-md-3 mt-4">
-              <ArtikelList artikelList={listArtikel} />
-            </div>
+            <ArtikelList artikelList={listArtikel} />
             <div className={listArtikel.length > 0 ? 'row' : 'row d-none'}>
               <a href="/artikel" className="btn btn-primary mt-4 w-auto mx-auto">
                 Artikel lainnya

@@ -17,14 +17,14 @@ import AdminProfil from './pages/admin/Profil';
 import Laporan from './pages/user/laporan/Laporan';
 import LaporanDetail from './pages/user/laporan/LaporanDetail';
 import LaporanTambah from './pages/user/laporan/LaporanTambah';
+import Artikel from './pages/user/artikel/Artikel';
+import ArtikelDetail from './pages/user/artikel/DetailArtikel';
+import Profil from './pages/user/Profil';
 
 import Beranda from './pages/Beranda';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import SwalCustom from './data/swal-custom';
-
-import Artikel from './pages/user/artikel/Artikel';
-import ArtikelDetail from './pages/user/artikel/DetailArtikel';
 
 function App() {
   const navigate = useNavigate();
@@ -79,7 +79,6 @@ function App() {
               <Route path="/artikel/:id" element={<AdminArtikelDetail />} />
               <Route path="/artikel/tambah" element={<AdminArtikelTambah />} />
               <Route path="/artikel/ubah/:id" element={<AdminArtikelUbah />} />
-
             </Routes>
           </AuthedUserContext.Provider>
         );
@@ -94,6 +93,7 @@ function App() {
             <Route path="/laporan/tambah" element={<LaporanTambah />} />
             <Route path="/artikel" element={<Artikel />} />
             <Route path="/artikel/:id" element={<ArtikelDetail />} />
+            <Route path="/profil/:id" element={<Profil />} />
           </Routes>
         </AuthedUserContext.Provider>
       );
@@ -102,13 +102,14 @@ function App() {
     return (
       <AuthedUserContext.Provider value={authedUserContextValue}>
         <Routes>
-          <Route path="/" element={<Beranda />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLoginSuccess={onLoginSuccess} />} />
+          <Route path="/" element={<Beranda />} />
           <Route path="/laporan" element={<Laporan />} />
           <Route path="/laporan/:id" element={<LaporanDetail />} />
           <Route path="/artikel" element={<Artikel />} />
           <Route path="/artikel/:id" element={<ArtikelDetail />} />
+          <Route path="/profil/:id" element={<Profil />} />
         </Routes>
       </AuthedUserContext.Provider>
     );

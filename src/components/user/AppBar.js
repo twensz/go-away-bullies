@@ -16,7 +16,7 @@ function AppBar() {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav d-flex align-items-center ms-auto">
             <li className="nav-item me-4">
               <a className="nav-link" href="/">Beranda</a>
             </li>
@@ -38,7 +38,7 @@ function AppBar() {
                     <img src={CONFIG.DEFAULT_AVATAR} alt="" width="35" height="35" className="border border-primary border-opacity-75 rounded-circle me-1" />
                   </a>
                   <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a className="dropdown-item" href="/profile">Profile</a></li>
+                    <li><a className="dropdown-item" href="/profil">Profile</a></li>
                     <li><a className="dropdown-item" href={`/profil/${authedUser.id}`}>Laporan Saya</a></li>
                     <li><hr className="dropdown-divider" /></li>
                     <li><button className="dropdown-item" type="button" onClick={onLogout}>Logout</button></li>

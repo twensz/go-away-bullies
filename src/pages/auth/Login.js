@@ -67,7 +67,7 @@ function Login({ onLoginSuccess }) {
           <div className="row mt-3 mb-1">
             <p>
               Belum punya akun?
-              <a href="/register" className="ms-2">Register</a>
+              <a href="/register" className="ms-2 d-inline">Register</a>
             </p>
           </div>
           <div className="row mt-3 justify-content-end">
