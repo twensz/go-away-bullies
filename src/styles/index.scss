@@ -8,6 +8,8 @@ $warning: darken($color: $warning, $amount: 10%);
 @import "user.scss";
 @import "components/button.scss";
 @import "components/artikel.scss";
+@import "components/artikel-list.scss";
+@import "components/artikel-detail.scss";
 
 #root {
   color: #37495a;

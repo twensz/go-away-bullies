@@ -14,6 +14,10 @@ import AdminArtikelUbah from './pages/admin/artikel/ArtikelUbah';
 import AdminArtikelDetail from './pages/admin/artikel/ArtikelDetail';
 import AdminProfil from './pages/admin/Profil';
 
+import Laporan from './pages/user/laporan/Laporan';
+import LaporanDetail from './pages/user/laporan/LaporanDetail';
+import LaporanTambah from './pages/user/laporan/LaporanTambah';
+
 import Beranda from './pages/Beranda';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
@@ -85,6 +89,9 @@ function App() {
         <AuthedUserContext.Provider value={authedUserContextValue}>
           <Routes>
             <Route path="/" element={<Beranda />} />
+            <Route path="/laporan" element={<Laporan />} />
+            <Route path="/laporan/:id" element={<LaporanDetail />} />
+            <Route path="/laporan/tambah" element={<LaporanTambah />} />
             <Route path="/artikel" element={<Artikel />} />
             <Route path="/artikel/:id" element={<ArtikelDetail />} />
           </Routes>
@@ -98,6 +105,8 @@ function App() {
           <Route path="/" element={<Beranda />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLoginSuccess={onLoginSuccess} />} />
+          <Route path="/laporan" element={<Laporan />} />
+          <Route path="/laporan/:id" element={<LaporanDetail />} />
           <Route path="/artikel" element={<Artikel />} />
           <Route path="/artikel/:id" element={<ArtikelDetail />} />
         </Routes>

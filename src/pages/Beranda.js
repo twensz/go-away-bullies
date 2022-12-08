@@ -1,10 +1,9 @@
 import React from 'react';
-import { BsFolder2Open } from 'react-icons/bs';
 
-import { formatDate, getDataLimit } from '../data/data-source';
+import { getDataLimit } from '../data/data-source';
 import Template from '../components/user/Template';
-import CONFIG from '../globals/config';
-import berandaImage1 from '../images/beranda-1.jpg';
+import berandaImage2 from '../images/beranda-2.jpg';
+import ArtikelList from '../components/ArtikelList';
 
 function Beranda() {
   const [listArtikel, setListArtikel] = React.useState([]);
@@ -23,23 +22,32 @@ function Beranda() {
     return (
       <>
         <div className="hero">
-          <h1 className="hero__text fw-light text-white p-3 rounded">
-            Bersama Melawan
-            <span className="text-nowrap">
-              <span className="text-uppercase bg-primary ms-3 me-1 fw-semibold "> Bullying </span>
-              !
-            </span>
-          </h1>
+          <div className="d-flex flex-column text-center">
+            <h1 className="display-5 fw-semibold text-uppercase text-white mb-3">Lawan Bullying</h1>
+            <h3 className="hero__text fw-light text-white p-3 rounded">
+              Bersama Go Away
+              <span className="text-nowrap">
+                <span className="bg-primary ms-3 me-1 fw-semibold "> Bullies </span>
+                !
+              </span>
+            </h3>
+            <div className="d-flex justify-content-center mt-2">
+              <a href="/login" className="btn btn-lg btn-primary">
+                Gabung
+              </a>
+            </div>
+          </div>
         </div>
 
         <div className="container py-5">
-          <section className="laporan-cta py-4">
-            <h2 className="fs-3">Laporkan Tindak Bullying</h2>
-            <div className="row gx-4 mt-4">
+          <section className="laporan-cta py-5 mb-5">
+            <div className="row gx-5 mt-4">
               <div className="laporan-cta__image-container col-md-6">
-                <img src={berandaImage1} className="img-fluid" alt="Tindak kekerasan bullying" />
+                <img src={berandaImage2} className="img-fluid" alt="Tindak kekerasan bullying" />
               </div>
               <div className="col-md-6 mt-3">
+                <p className="fs-5 fw-semibold text-danger mb-0">Jangan Takut</p>
+                <h2 className="fs-3 fw-semibold mb-3">Melaporkan Tindak Bullying</h2>
                 <p className="fs-5">
                   Jika anda melihat ataupun mengalami tindak bullying,
                   anda bisa langsung melaporkannya disini
@@ -51,40 +59,10 @@ function Beranda() {
             </div>
           </section>
 
-          <section className="latest-artikel mt-3 py-4">
-            <h2 className="fs-3">Artikel Terbaru</h2>
-            <div className="latest-artikel__list row gx-md-3 mt-4">
-              {listArtikel.length > 0 ? (
-                listArtikel.map((artikel) => (
-                  <div className="latest-artikel__item col-md-4 mb-3" key={artikel.id}>
-                    <div className="card">
-                      <img
-                        src={artikel.data.gambar || CONFIG.DEFAULT_IMAGE}
-                        className="latest-artikel__item__image card-img-top"
-                        alt="Hero Artikel"
-                      />
-                      <div className="card-body">
-                        <p className="card-subtitle text-muted fw-semibold mb-2">
-                          {formatDate(artikel.data.dibuatPada)}
-                        </p>
-                        <h3 className="fs-4 card-title">
-                          <a href={`/artikel/${artikel.id}`} className="text-decoration-none">
-                            {artikel.data.judul}
-                          </a>
-                        </h3>
-                        <p className="card-text text-truncate">{artikel.data.isi}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <div className="col">
-                  <div className="my-5 d-flex align-items-center justify-content-center">
-                    <BsFolder2Open className="fs-4 me-2 text-dark text-opacity-75" />
-                    <span className="fs-5 text-dark text-opacity-75">Artikel masih kosong</span>
-                  </div>
-                </div>
-              )}
+          <section className="mt-3 py-5">
+            <h2 className="fs-3 text-center">Artikel Terbaru</h2>
+            <div className="row gx-md-3 mt-4">
+              <ArtikelList artikelList={listArtikel} />
             </div>
             <div className={listArtikel.length > 0 ? 'row' : 'row d-none'}>
               <a href="/artikel" className="btn btn-primary mt-4 w-auto mx-auto">

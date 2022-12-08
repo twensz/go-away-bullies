@@ -4,23 +4,21 @@ import { useNavigate } from 'react-router-dom';
 import { addData, uploadFile } from '../../../data/data-source';
 import SwalCustom from '../../../data/swal-custom';
 import useInput from '../../../hooks/useInput';
-import Template from '../../../components/admin/Template';
+import Template from '../../../components/user/Template';
 import InputLokasi from '../../../components/admin/InputLokasi';
-import InputLabel from '../../../components/admin/InputLabel';
 import AuthedUserContext from '../../../contexts/AuthedUserContext';
+import InputLabel from '../../../components/admin/InputLabel';
 
 function LaporanTambah() {
   const navigate = useNavigate();
 
-  const { authedUser } = React.useContext(AuthedUserContext);
-
   const [judul, onJudulChange] = useInput('');
   const [isi, onIsiChange] = useInput('');
   const [waktuKejadian, onWaktuKejadianChange] = useInput('');
-  const [status, onStatusChange] = useInput('');
 
   const [lokasi, onLokasiChange] = React.useState();
   const [listLampiran, setListLampiran] = React.useState([]);
+  const { authedUser } = React.useContext(AuthedUserContext);
 
   function onLampiranChange(event) {
     setListLampiran([...event.target.files]);
@@ -61,8 +59,8 @@ function LaporanTambah() {
 
   function renderContent() {
     return (
-      <>
-        <h2 className="fs-4 mb-4">Tambah Laporan Baru</h2>
+      <div className="container py-4">
+        <h2 className="text-primary fs-4 mb-4">Tambah Laporan Baru</h2>
 
         <form className="container" onSubmit={onSubmit}>
           <div className="row mb-2">
@@ -105,33 +103,13 @@ function LaporanTambah() {
               required
             />
           </div>
-          <div className="row mb-2">
-            <label htmlFor="statusInput">
-              Status
-              <select
-                id="statusInput"
-                className="form-select mt-1 w-auto"
-                aria-label="Pilih status laporan"
-                value={status || ''}
-                onChange={onStatusChange}
-                required
-              >
-                <option value="" disabled>
-                  Pilih status
-                </option>
-                <option value="dilaporkan">dilaporkan</option>
-                <option value="dalamProses">dalamProses</option>
-                <option value="selesai">selesai</option>
-              </select>
-            </label>
-          </div>
           <div className="row mt-3 justify-content-end">
             <div className="col-auto">
               <button type="submit" className="btn btn-primary text-end">Tambah Laporan</button>
             </div>
           </div>
         </form>
-      </>
+      </div>
     );
   }
 
