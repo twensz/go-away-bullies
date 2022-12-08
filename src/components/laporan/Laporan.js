@@ -39,13 +39,16 @@ function Laporan({ laporan }) {
           </h3>
           <p className="card-text pre-line">{laporan.data.isi}</p>
           <p>Lampiran :</p>
-          {laporan.data.lampiran.length > 0 ? (
-            laporan.data.lampiran.map((lampiranUrl, index) => (
-              <a href={lampiranUrl} className="me-2" rel="noreferrer" target="_blank" key={`lampiran-${index + 1}`}>
-                <img src={lampiranUrl} className="img-thumbnail lampiran" alt={`Link lampiran ${index + 1}`} />
-              </a>
-            ))
-          ) : <p>Tidak ada lampiran</p>}
+
+          <div className="d-flex gap-2">
+            {laporan.data.lampiran.length > 0 ? (
+              laporan.data.lampiran.map((lampiranUrl, index) => (
+                <a href={lampiranUrl} rel="noreferrer" target="_blank" key={`lampiran-${index + 1}`}>
+                  <img src={lampiranUrl} className="img-thumbnail lampiran" alt={`Link lampiran ${index + 1}`} />
+                </a>
+              ))
+            ) : <p>Tidak ada lampiran</p>}
+          </div>
         </div>
       </div>
     </div>

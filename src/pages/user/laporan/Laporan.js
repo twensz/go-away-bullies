@@ -35,8 +35,8 @@ function Laporan() {
   function renderContent() {
     return (
       <div className="container py-4">
+        <h2 className="fs-3 mb-4">Semua Laporan</h2>
         <a className="btn btn-primary mb-4" href="/laporan/tambah">Buat Laporan</a>
-        <h2 className="text-primary fs-3 mb-4">Semua Laporan</h2>
         {
           listLaporan.length > 0
             ? listLaporan.map((laporan) => (

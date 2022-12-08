@@ -9,7 +9,7 @@ function StatusLaporan({ status }) {
     return (
       <div className="laporan-item__status laporan-item__status--dilaporkan">
         <BsChatFill className="me-2" />
-        <span>Dilaporkan</span>
+        <span className="text-nowrap">Dilaporkan</span>
       </div>
     );
   }
@@ -17,7 +17,7 @@ function StatusLaporan({ status }) {
     return (
       <div className="laporan-item__status laporan-item__status--proses">
         <BsStopwatchFill className="me-2" />
-        <span>Dalam Proses</span>
+        <span className="text-nowrap">Dalam Proses</span>
       </div>
     );
   }
@@ -25,7 +25,7 @@ function StatusLaporan({ status }) {
   return (
     <div className="laporan-item__status laporan-item__status--selesai">
       <BsCheckCircleFill className="me-2" />
-      <span>Selesai</span>
+      <span className="text-nowrap">Selesai</span>
     </div>
   );
 }
