@@ -28,7 +28,7 @@ function ArtikelDetail() {
             ? (
               <div className="container p-3 bg-white mt-2">
                 <h2 className="fs-1 fw-semibold text-dark">{artikel.data.judul}</h2>
-                <span className="text-muted my-3">{`${formatDate(artikel.data.dibuatPada)} - ${artikel.data.penulis}`}</span>
+                <div className="text-muted my-3">{`${formatDate(artikel.data.dibuatPada)}  sadf  ${artikel.data.penulis}`}</div>
                 <img
                   style={{
                     maxHeight: '400px', width: '100%', objectFit: 'cover', margin: '20px 0',

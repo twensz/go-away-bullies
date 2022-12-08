@@ -18,7 +18,7 @@ function ArtikelList({ artikelList }) {
   }
 
   return (
-    <div className="artikel-list row gx-md-4 mt-4">
+    <div className="artikel-list row justify-content-center align-items-stretch gx-md-4 mt-4">
       {artikelList.map((artikel) => (
         <div className="artikel-item col-md-4 mb-3" key={artikel.id}>
           <div className="card shadow-sm">

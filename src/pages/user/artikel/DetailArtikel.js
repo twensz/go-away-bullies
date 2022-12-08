@@ -1,30 +1,40 @@
-/* eslint-disable max-len */
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import ArtikelDetail from '../../../components/ArtikelDetail';
+import { getData, getDataLimit } from '../../../data/data-source';
 import Template from '../../../components/user/Template';
-import { getData } from '../../../data/data-source';
+import ArtikelDetail from '../../../components/ArtikelDetail';
+import ArtikelList from '../../../components/ArtikelList';
 
 function DetailArtikel() {
   const { id } = useParams();
-  const [artikel, setArtikel] = React.useState({});
+  const [artikel, setArtikel] = React.useState(null);
+  const [listArtikel, setListArtikel] = React.useState([]);
 
   React.useEffect(() => {
     (async () => {
-      const result = await getData('artikel', id);
-      setArtikel(result);
+      setArtikel(await getData('artikel', id));
+      setListArtikel(await getDataLimit('artikel', 3));
     })();
+
+    return () => {
+      setArtikel();
+    };
   }, []);
 
   function renderContent() {
     return (
-      <div className="container py-5">
-        <ArtikelDetail artikel={artikel} />
+      <div className="container py-4">
+        {artikel ? <ArtikelDetail artikel={artikel} /> : null}
+        <div className="artikel-detail fs-6 m-auto mt-4">
+          <h3 className="fs-4 text-center">Artikel Lainnya</h3>
+          <ArtikelList artikelList={listArtikel} />
+        </div>
       </div>
     );
   }
 
   return <Template content={renderContent()} />;
 }
+
 export default DetailArtikel;

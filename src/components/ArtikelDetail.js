@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import { formatDate } from '../data/data-source';
 
 function ArtikelDetail({ artikel }) {
-  if (!artikel) {
-    return null;
-  }
-
   return (
     <div className="d-flex justify-content-center">
       <div className="artikel-detail">

@@ -24,7 +24,7 @@ const SwalCustom = {
   },
   async showError(error) {
     await swal({
-      text: `error : ${error}`,
+      text: `${error}`,
       icon: 'error',
     });
   },
