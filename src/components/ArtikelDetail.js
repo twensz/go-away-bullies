@@ -7,7 +7,7 @@ function ArtikelDetail({ artikel }) {
     <div className="d-flex justify-content-center">
       <div className="artikel-detail">
         <h2 className="fs-1 text-primary fw-semibold mb-3">{artikel.data.judul}</h2>
-        <span className="text-muted my-3">{`${formatDate(artikel.data.dibuatPada)} - ${artikel.data.penulis}`}</span>
+        <span className="text-muted my-3">{`Dibuat pada ${formatDate(artikel.data.dibuatPada)}`}</span>
         <img
           style={{
             maxHeight: '400px', width: '100%', objectFit: 'cover', margin: '20px 0',
